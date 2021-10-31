@@ -90,4 +90,15 @@ public class AddressBook {
         }
         System.out.println(contacts);
     }
+
+    public void remove(String removeName) {
+        for (int i = 0; i < contacts.size(); i++) {
+            PersonInfo addPerson = (PersonInfo) contacts.get(i);
+            if (removeName.equals(addPerson.firstName)) {
+                contacts.remove(i);
+                System.out.println(contacts);
+            }
+        }
+
+    }
 }

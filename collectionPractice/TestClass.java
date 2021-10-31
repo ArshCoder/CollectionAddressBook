@@ -25,12 +25,13 @@ public class TestClass {
                     add.editPerson(editName);
                     break;
                 case 3:
-
+                    System.out.println("Enter a name you want to remove :");
+                    Scanner remove = new Scanner(System.in);
+                    String removeName = remove.nextLine();
+                    add.remove(removeName);
                     break;
                 case exit:
                     break;
-
-
             }
         }
     }
