@@ -10,15 +10,22 @@ public class TestClass {
         AddressBook add = new AddressBook();
         while (option != exit) {
             System.out.println("Choice one from given below");
-            Scanner name = new Scanner(System.in);
-            System.out.println("1. Add a Person to the address book.\n 2. Edit Person Info. \n 3. Delete person Info. \n 10.Exit\n");
-            option = name.nextInt();
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("1. Add a Person to the address book.\n 2. Edit Person Info. \n 3. Delete person Info. \n  10.Exit\n");
+            option = scanner.nextInt();
 
             switch (option) {
                 case 1:
                     add.addContacts();
                     break;
                 case 2:
+                    System.out.println("Enter a name you want to edit :");
+                    Scanner edit = new Scanner(System.in);
+                    String editName = edit.nextLine();
+                    add.editPerson(editName);
+                    break;
+                case 3:
+
                     break;
                 case exit:
                     break;
