@@ -1,6 +1,7 @@
 package com.collectionPractice;
 
 public class PersonInfo {
+
     String firstName;
     String lastName;
     String address;
@@ -9,6 +10,24 @@ public class PersonInfo {
     String zip;
     String phoneNumber;
     String email;
+
+
+    public PersonInfo(String firstName, String lastName, String address, String city, String state, String zip,
+                      String phoneNumber, String email) {
+        super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+
+    public PersonInfo() {
+
+    }
 
     public String getFirstName() {
         return firstName;
@@ -74,18 +93,6 @@ public class PersonInfo {
         this.email = email;
     }
 
-    public PersonInfo(String firstName, String lastName, String address, String city, String state, String zip,
-                      String phoneNumber, String email) {
-        super();
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-    }
 
     @Override
     public String toString() {
