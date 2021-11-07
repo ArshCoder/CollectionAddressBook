@@ -55,7 +55,7 @@ class NewAddressBook {
 
     public void initEntries(int e) {
         contents = new Entry[e];
-        for (int i = 0; i < contents.length; i++) {      //Initializes an array of entries, then loops through to initialize each individual entry
+        for (int i = 0; i < contents.length; i++) {
             contents[i] = new Entry();
         }
     }
@@ -80,7 +80,7 @@ class NewAddressBook {
                 if (entry + 1 == entries) contents[entry] = new Entry();
                 else {
                     Entry temp = contents[entry + i];
-                    contents[entry + i] = contents[entry + i + 1]; //Removes an entry end moves each entry after it one backwards.
+                    contents[entry + i] = contents[entry + i + 1];
                     contents[entry + i + 1] = temp;
                 }
             }
