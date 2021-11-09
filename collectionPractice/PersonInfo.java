@@ -25,9 +25,9 @@ public class PersonInfo {
         this.email = email;
     }
 
-    public PersonInfo() {
-
+    public PersonInfo(String firstName) {
     }
+
 
     public String getFirstName() {
         return firstName;

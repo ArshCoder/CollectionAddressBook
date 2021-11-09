@@ -1,12 +1,34 @@
 package com.collectionPractice;
 
-import java.awt.print.Book;
 import java.util.*;
 
 public class AddressBook {
     ArrayList<PersonInfo> contacts = new ArrayList<>();
 
-    public void addContacts() {
+    public ArrayList<PersonInfo> setContacts() {
+        String FirstName = "Arshjeet";
+        String LastName = "Barkade";
+        String Address = "Supe";
+        String City = "Pune";
+        String State = "Maharashtra";
+        String Zip = "412204";
+        String PhoneNumber = "7756096271";
+        String Email = "arshjeetb08@gmail.com";
+        PersonInfo personOne = new PersonInfo(FirstName, LastName, Address, City, State, Zip, PhoneNumber, Email);
+        ArrayList<PersonInfo> contacts = new ArrayList<>();
+        contacts.add(personOne);
+        return contacts;
+    }
+
+
+    public ArrayList<PersonInfo> addContacts(PersonInfo personInfo) {
+        for (int i = 0; i < contacts.size(); i++) {
+            PersonInfo contact = contacts.get(i);
+            if (Objects.equals(contact.getFirstName(), personInfo.getFirstName())) {
+                System.out.println("Sorry this contact already exists.");
+                return null;
+            }
+        }
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter FirstName: ");
@@ -28,10 +50,10 @@ public class AddressBook {
 
         PersonInfo addPerson = new PersonInfo(firstName, lastName, address, city, state, zip, phoneNumber, email);
         contacts.add(addPerson);
-
-        System.out.println(addPerson);
         System.out.println(contacts);
+        return contacts;
     }
+
 
     public void editPerson(String editName) {
         Scanner scanner = new Scanner(System.in);
@@ -102,6 +124,21 @@ public class AddressBook {
 
     }
 
+    public void duplicateCheck(String duplicateName) {
+        for (int i = 0; i < contacts.size(); i++) {
+            PersonInfo addPerson = (PersonInfo) contacts.get(i);
+            if (duplicateName.equals(addPerson.firstName)) {
+                System.out.println("This is duplicate entry");
+            } else {
+                System.out.println("You can add this name");
+
+            }
+
+
+        }
+    }
+
+
     public void addNewAddressBook() {
         Scanner s = new Scanner(System.in);
         System.out.print("How many books do you want to create? ");
@@ -150,10 +187,8 @@ public class AddressBook {
             System.out.println("1. Add an entry");
             System.out.println("2. Remove an entry");
             System.out.println("3. Edit an entry");
-            System.out.println("4. Sort all entries in this book");
-            System.out.println("5. Select another book");
-            System.out.println("6. Move entry across books");
-            System.out.println("7. Exit the menu");
+            System.out.println("4. Select another book");
+            System.out.println("5. Exit the menu");
             System.out.print("> ");
             int selection = s.nextInt();
             String firstName, lastName, address, city, state, zip, phoneNumber, email;
@@ -206,27 +241,11 @@ public class AddressBook {
                     library[selectedBook].edit(firstName, lastName, address, city, state, zip, phoneNumber, email, whichEntry);
                     break;
                 case 4:
-                    System.out.println("Sort alphabetically by which field?");
-                    System.out.println("1. Sort by first name");
-                    System.out.println("2. Sort by last name");
-                    System.out.println("3. Sort by address");
-                    System.out.println("4. Sort by email");
-                    library[selectedBook].sort(s.nextInt());
-                    break;
-                case 5:
                     System.out.print("Select which book?");
                     selectedBook = s.nextInt();
                     break;
-                case 6:
-                    System.out.print("Move which entry? ");
-                    int entryNo = s.nextInt();
-                    NewAddressBook.Entry entryToMove = library[selectedBook].contents[entryNo];
-                    library[selectedBook].remove(entryNo);
-                    System.out.print("To which book? ");
-                    int whichBook = s.nextInt();
-                    library[whichBook].addFromCopy(entryToMove);
-                    break;
-                case 7:
+
+                case 5:
                     done = true;
                     break;
                 default:
@@ -238,6 +257,7 @@ public class AddressBook {
 
     }
 }
+
 
 
 

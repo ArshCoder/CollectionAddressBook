@@ -127,12 +127,25 @@ class NewAddressBook {
                         }
                         break;
                     case 4:
-                        if (contents[i].email.compareTo(contents[j].email) < 0) {
+                        if (contents[i].city.compareTo(contents[j].city) < 0) {
                             Entry temp = contents[i];
                             contents[i] = contents[j];
                             contents[j] = temp;
                         }
                         break;
+                    case 5:
+                        if (contents[i].state.compareTo(contents[j].state) < 0) {
+                            Entry temp = contents[i];
+                            contents[i] = contents[j];
+                            contents[j] = temp;
+                        }
+                        break;
+                    case 6:
+                        if (contents[i].zip.compareTo(contents[j].zip) < 0) {
+                            Entry temp = contents[i];
+                            contents[i] = contents[j];
+                            contents[j] = temp;
+                        }
                     default:
                         System.out.println("Error: invalid field");
                         break;
