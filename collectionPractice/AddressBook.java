@@ -1,6 +1,8 @@
 package com.collectionPractice;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AddressBook {
     ArrayList<PersonInfo> contacts = new ArrayList<>();
@@ -138,6 +140,14 @@ public class AddressBook {
         }
     }
 
+    public void searchCity(String city) {
+        Stream<PersonInfo> stream = contacts.stream();
+        Optional<PersonInfo> collect = stream.filter(i -> i.getFirstName().equals(city)).findFirst();
+        System.out.println(collect);
+        System.out.println(contacts);
+
+    }
+
 
     public void addNewAddressBook() {
         Scanner s = new Scanner(System.in);
@@ -244,6 +254,7 @@ public class AddressBook {
                     System.out.print("Select which book?");
                     selectedBook = s.nextInt();
                     break;
+
 
                 case 5:
                     done = true;

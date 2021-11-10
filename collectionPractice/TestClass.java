@@ -16,7 +16,7 @@ public class TestClass {
 
             System.out.println("Choice one from given below");
             Scanner scanner = new Scanner(System.in);
-            System.out.println("1. Add a Person to the address book.\n 2. Edit Person Info. \n 3. Delete person Info. \n 4.Select Another Book \n 5.Duplicate check \n 10.Exit\n");
+            System.out.println("1. Add a Person to the address book.\n 2. Edit Person Info. \n 3. Delete person Info. \n 4.Select Another Book \n 5.Duplicate check \n 6. Search Person by city \n 10.Exit\n");
             option = scanner.nextInt();
 
 
@@ -48,6 +48,12 @@ public class TestClass {
                     Scanner s = new Scanner(System.in);
                     String duplicateName = s.nextLine();
                     add.duplicateCheck(duplicateName);
+                case 6:
+                    Scanner search = new Scanner(System.in);
+                    System.out.println("Enter city name");
+                    String city = search.nextLine();
+                    add.searchCity(city);
+                    break;
                 case exit:
                     break;
             }
