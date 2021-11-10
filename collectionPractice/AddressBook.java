@@ -211,7 +211,8 @@ public class AddressBook {
             System.out.println("2. Remove an entry");
             System.out.println("3. Edit an entry");
             System.out.println("4. Select another book");
-            System.out.println("5. Exit the menu");
+            System.out.println("5. Sort the contact list");
+            System.out.println("6. Exit the menu");
             System.out.print("> ");
             int selection = s.nextInt();
             String firstName, lastName, address, city, state, zip, phoneNumber, email;
@@ -267,9 +268,17 @@ public class AddressBook {
                     System.out.print("Select which book?");
                     selectedBook = s.nextInt();
                     break;
-
-
                 case 5:
+                    System.out.println("Sort alphabetically by which field?");
+                    System.out.println("1. Sort by first name");
+                    System.out.println("2. Sort by last name");
+                    System.out.println("3. Sort by address");
+                    System.out.println("4. Sort by city");
+                    System.out.println("5. Sort by state");
+                    System.out.println("6. Sort by zip");
+                    library[selectedBook].sort(s.nextInt());
+                    break;
+                case 6:
                     done = true;
                     break;
                 default:
