@@ -148,6 +148,19 @@ public class AddressBook {
 
     }
 
+    public void view(String city, String state) {
+        Stream<PersonInfo> stream = contacts.stream();
+        List<PersonInfo> collect;
+        collect = stream.filter(i -> i.getFirstName().equals(city)).collect(Collectors.toList());
+        List<PersonInfo> collect1;
+
+        collect1 = stream.filter(i -> i.getFirstName().equals(state)).collect(Collectors.toList());
+        System.out.println(collect);
+        System.out.println(collect1);
+        System.out.println(contacts);
+
+    }
+
 
     public void addNewAddressBook() {
         Scanner s = new Scanner(System.in);
